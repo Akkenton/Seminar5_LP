@@ -76,7 +76,7 @@ int[] FillArrayWithRandomNumbers(int size, int leftrange, int rightrange)
 
 int[] FillNewArray(int[] arr)
 {
-    int[] arrayNew = new int[(arr.Length / 2) + arr.Length % 2];
+    int[] arrayNew = new int[(arr.Length / 2) + (arr.Length % 2)];
     if (arr.Length % 2 == 0)
     {
         for (int i = 0; i < (arr.Length / 2); i++)
@@ -88,8 +88,7 @@ int[] FillNewArray(int[] arr)
     {
         for (int i = 0; i < (arr.Length / 2); i++)
         {
-            int count = (arr.Length - 1) - i;
-            arrayNew[i] = arr[i] * arr[count];
+            arrayNew[i] = arr[i] * arr[(arr.Length - 1) - i];
         }
         arrayNew[arrayNew.Length - 1] = arr[arr.Length / 2];
 
@@ -106,9 +105,7 @@ int lRange = 0;
 int rRange = 10;
 
 int[] array = new int[size];
-int[] arrayNew = new int[0];
 array = FillArrayWithRandomNumbers(size, lRange, rRange);
 
-arrayNew = FillNewArray(array);
 Console.WriteLine("Заданый массив: [" + string.Join(",", array) + "]");
-Console.WriteLine("Новый массив: [" + string.Join(",", arrayNew) + "]");
+Console.WriteLine("Новый массив: [" + string.Join(",", FillNewArray(array)) + "]");
