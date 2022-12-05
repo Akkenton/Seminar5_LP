@@ -2,9 +2,6 @@
 const int LEFTRANGE = -9;
 const int RIGHTRANGE = 9;
 int[] array = new int[SIZE];
-int sumPositive = 0;
-int sumNegative = 0;
-
 
 int[] FillArrayWithRandomNumbers(int size, int leftrange, int rightrange)
 {
